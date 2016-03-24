@@ -10,5 +10,5 @@
 				http://www.springframework.org/schema/tx/spring-tx-3.2.xsd"
 	default-lazy-init="true" default-autowire="byName">
 
- 
+ 	<context:annotation-config />
 </beans>
