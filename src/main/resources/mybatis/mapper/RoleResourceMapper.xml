@@ -40,4 +40,31 @@
       </if>
     </trim>
   </insert>
+  <resultMap id="BaseResultMap" type="org.lcb.model.RoleResource">
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="resource_id" jdbcType="INTEGER" property="resourceId" />
+  </resultMap>
+  <insert id="insert" parameterType="org.lcb.model.RoleResource">
+    insert into p_role_resource (role_id, resource_id)
+    values (#{roleId,jdbcType=INTEGER}, #{resourceId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.lcb.model.RoleResource">
+    insert into p_role_resource
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="resourceId != null">
+        resource_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="resourceId != null">
+        #{resourceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
 </mapper>
